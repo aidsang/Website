@@ -10,10 +10,16 @@ body {
 }
 
 .container {
-    width: 95%;
-    margin: 10px;
+    width: 100%;
+    /*margin: 10px;*/
+    padding: 10px;
+    display: flex;
     /*background-color: rgba(52, 73, 94, 1.0);*/
     /*color: rgba(236, 240, 241, 1.0);*/
+}
+
+.container > * {
+    margin: 0 auto;
 }
 
 .container::after {
@@ -148,7 +154,6 @@ a, a:visited {
 
 .form-label {
     width: 30%;
-    float: left;
     padding: 0.3rem;
 }
 
@@ -158,9 +163,8 @@ a, a:visited {
 }
 
 .button-group {
-    margin-top: 3rem;
-    text-align: center;
-    color:rgba(209, 19, 19, 1.0)
+    margin-top: 40px;
+    text-align: left
 }
 
 .button-group input {

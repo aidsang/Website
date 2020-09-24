@@ -1,8 +1,6 @@
 {% extends 'base.html' %}
 
-{% block pageheading %}
-cart
-{% endblock %}
+{% block title%}Cart{% endblock %}
 
 {% block main %}
 <table class="cart-table">
@@ -23,12 +21,22 @@ cart
         <td>{{ item[1] }}</td>
         <td>${{ "{:.2f}".format(item[3]) }}</td>
         <td>${{ "{:.2f}".format(item[3] * item[1]) }}</td>
-        <td><a href="/removeonefromcart/{{ item[0] }}">X</a></td>
+        <td><a href="/removefromcart/{{ item[0] }}">X</a></td>
         {% set ns.total = ns.total + item[3] * item[1] %}
     </tr>
     {% endfor %}
-    <td></td><td></td><td></td><td class="cart-total">${{ "{:.2f}".format(ns.total) }}</td><td></td>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td class="cart-total">${{ "{:.2f}".format(ns.total) }}</td>
+        <td></td>
+    </tr>
     </tbody>
-
 </table>
+
+    <div>
+        <a href="/confirmorder">Confirm Order &raquo;</a>
+    </div>
+
 {% endblock %}

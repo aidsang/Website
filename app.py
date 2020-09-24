@@ -6,7 +6,7 @@ from flask_bcrypt import Bcrypt
 from sqlite3 import Error
 from datetime import datetime
 
-DB_NAME = "//Users//aidanang//PycharmProjects//learning-flask-wc-tph//smile.db"
+DB_NAME = "//Users//aidanang//PycharmProjects//Website//fraise.db"
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -52,30 +52,31 @@ def render_menu_page():
 
 @app.route('/addtocart/<productid>')
 def addtocart(productid):
-    try:
-        productid = int(productid)
-    except ValueError:
-        print('{} is not an integer'.format(productid))
-        return redirect('/women?error=Invalid+product+id')
+   try:
+       productid=int(productid)
+   except ValueError:
+       print("{} is not an integer".format(productid))
+       return redirect("/women?error=Invalid+product+id")
 
-    userid = session['userid']
-    timestamp = datetime.now()
-    print("User {} would like to add {} to cart at {}".format(userid, productid,timestamp))
+   userid = session['userid']
+   timestamp = datetime.now()
+   print("User {} would like to add {} to cart at {}".format(userid, productid,timestamp))
 
-    query = "INSERT INTO cart(id,userid,productid, timestamp) VALUES(NULL,?,?,?)"
-    con = create_connection(DB_NAME)
-    cur = con.cursor()
+   query = "INSERT INTO cart(id,userid,productid,timestamp) VALUES (NULL,?,?,?)"
+   con = create_connection(DB_NAME)
+   cur = con.cursor()  # You need this line next
 
-    try:
-        cur.execute(query, (userid, productid, timestamp))
-    except sqlite3.IntegrityError as e:
-        print(e)
-        print('### PROBLEM INSERTING INTO DATABASE - FOREIGN KEY ###')
-        con.close()
-        return redirect('/women?error=Something+went+wrong')
-    con.commit()
-    con.close()
-    return redirect('/women')
+   try:
+       cur.execute(query, (userid, productid, timestamp))
+   except sqlite3.IntegrityError as e:
+       print(e)
+       print("### PROBLEM INSERTING INTO DATABASE - FOREIGN KEY ###")
+       con.close()
+       return redirect('/women?error=Something+went+very+wrong')
+
+   con.commit()
+   con.close()
+   return redirect('/women')
 
 
 @app.route('/cart')
@@ -85,35 +86,37 @@ def render_cart():
     con = create_connection(DB_NAME)
     cur = con.cursor()
     cur.execute(query, (userid,))
-    print(userid)
     product_ids = cur.fetchall()
-    print(product_ids)
 
-    # for i in range(len(product_ids)):
-    #     product_ids[i] = product_ids[i][0]
-    # print(product_ids)
+    if len(product_ids) == 0:
+        return redirect('/women?error=Cart+empty')
+
+    for i in range(len(product_ids)):
+        product_ids[i] = product_ids[i][0]
 
     unique_product_ids = list(set(product_ids))
-    print(unique_product_ids)
+
     for i in range(len(unique_product_ids)):
         product_count = product_ids.count(unique_product_ids[i])
         unique_product_ids[i] = [unique_product_ids[i], product_count]
-    print(unique_product_ids)
 
-    query = """SELECT name, price FROM product WHERE id =?;"""
+    query = """SELECT name, price FROM product WHERE id = ?"""
     for item in unique_product_ids:
-        print(item[0])
-        cur.execute(query, (item[0]))
+        cur.execute(query, (item[0],))
         item_details = cur.fetchall()
         item.append(item_details[0][0])
         item.append(item_details[0][1])
+
     con.close()
+    print(unique_product_ids)
+
     return render_template('cart.html', cart_data=unique_product_ids, logged_in=is_logged_in())
+
 
 
 @app.route('/removefromcart/<productid>')
 def remove_from_cart(productid):
-    print("Remove: {}".format(productid))
+    print("remove:{}".format(productid))
     query = "DELETE FROM cart WHERE productid=?;"
     con = create_connection(DB_NAME)
     cur = con.cursor()
@@ -121,7 +124,6 @@ def remove_from_cart(productid):
     con.commit()
     con.close()
     return redirect('/cart')
-
 
 
 
@@ -219,7 +221,7 @@ def logout():
 @app.route('/confirmorder')
 def confirmorder():
     userid = session['userid']
-    con = create_connection()
+    con = create_connection(DB_NAME)
 
 
 def is_logged_in():
@@ -231,4 +233,4 @@ def is_logged_in():
         return True
 
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='0.0.0.0', port='3000', debug=True)
