@@ -11,31 +11,40 @@
 </head>
 
 <body>
+
 <nav>
     <div class="container">
-        <div class="navbar-brand">FRAISE CLOTHING</div>
-        <div class="navbar-links">
-            <a href="/">home</a>
-            <a href="/women">women</a>
-            <a href="/contact">contact</a>
+        <div class="navbar-brand">FRAISE CLOTHING</div
+            <div class="navbar">
+              <a href="/">Home</a>
+              <div class="dropdown">
+                <button class="dropbtn">Dropdown
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                  <a href="/women">Women</a>
+                  <a href="#">Link 2</a>
+                  <a href="#">Link 3</a>
+                </div>
+              </div>
+                <a href="/contact">contact</a>
             {% if logged_in %}
                 <a href="/cart">&#128722;</a>
                 <a href="/logout">log out</a>
             {% else %}
                 <a href="/login">log in</a>
             {% endif %}
-        </div>
+            </div>
     </div>
 </nav>
+
+
 <header>
     <h2>{% block pageheading %}{% endblock %}</h2>
 </header>
 <div class="container">
 
     <main>
-        {% if logged_in %}
-        <strong>Hello, {{ session.firstname }}</strong>
-        {% endif %}
 
         {% block main %}
         {% endblock %}
