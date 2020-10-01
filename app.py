@@ -81,6 +81,8 @@ def addtocart(productid):
 
 @app.route('/cart')
 def render_cart():
+    if not is_logged_in():
+        return redirect('/login')
     userid = session['userid']
     query = "SELECT productid FROM cart WHERE userid=?;"
     con = create_connection(DB_NAME)
@@ -216,6 +218,7 @@ def logout():
     [session.pop(key) for key in list(session.keys())]
     print(list(session.keys()))
     return redirect(request.referrer + '?message=See+you+next+time!')
+    return redirect('/login')
 
 
 @app.route('/confirmorder')

@@ -2,11 +2,12 @@
     font-family: 'American Typewriter', serif;
     padding: 0;
     margin: 0;
+    color:#def2f1;
     box-sizing: border-box;
 }
 
 body {
-    background-color: rgba(236, 240, 241, 1.0);
+    background-color: #1A1A1D;
 }
 
 .container {
@@ -47,13 +48,13 @@ h2 {
 }
 
 nav {
-    background-color: red; /* darkest blue */
+    background-color: #a70606; /* darkest blue */
     text-align: center;
     /*color: rgba(52, 152, 219, 1.0);!*light blue*!*/
     font-size: 3rem;
     padding-top: 0.4rem;
     padding-bottom: 0.7rem;
-    color: rgba(0, 0, 0, 1.0); /*light blue*/
+    color: #def2f1; /*light blue*/
 }
 
 .navbar-brand {
@@ -66,9 +67,6 @@ html{
     line-height: 0.9;
 }
 
-.navbar-brand {
-    text-shadow: -12px -8px 20px white;
-}
 nav a {
     /*margin:0 0.5rem;*/
     padding: 0.5rem;
@@ -81,11 +79,11 @@ nav a {
 nav a:hover {
     /*color: rgba(44, 62, 80, 1.0); !* darkest blue *!*/
     /*background-color: rgba(52, 152, 219, 1.0); /*!*light blue*!*/
-    border-bottom: 3px solid rgba(0, 0, 0, 1.0);
+    border-bottom: 3px solid #def2f1;
 }
 
 a, a:visited {
-    color: rgba(0, 0, 0, 1.0);
+    color: #def2f1;
     /*color:hotpink;*/
     text-decoration: none;
 }
@@ -103,8 +101,8 @@ a, a:visited {
 .product-box {
     width: 32%;
     *padding: 5px;
-    border: 1px solid rgba(189, 195, 199, 1.0);
-    color: rgba(44, 62, 80, 1.0);
+    border: 1px solid #1A1A1D;
+    color: #def2f1;
     margin-bottom: 0.5rem;
 }
 
@@ -113,8 +111,15 @@ a, a:visited {
 }
 
 .product-box-image {
-    height: auto;
-    overflow: hidden;
+    width:100%;
+    height:32vw;
+    object-fit:cover;
+    overflow:hidden;
+}
+
+.product-box-image img{
+    width:100%;
+    height:100%;
 }
 
 .product-box-info {
@@ -165,6 +170,7 @@ a, a:visited {
 
 .button-group input {
     padding: 0.3rem;
+    color:#2b7a78;
 }
 
 .form-group input {
@@ -183,7 +189,7 @@ table {
 .cart-table td {
     padding: 0.2rem 1rem;
     text-align: center;
-    border: 1px solid #ddd;
+    border: 1px solid #def2f1;
 }
 
 .cart-total {
@@ -210,7 +216,7 @@ table {
 
 .navbar {
   overflow: hidden;
-  background-color: #333;
+  background-color:#a70606;
   font-family: Arial;
 }
 
@@ -235,7 +241,7 @@ table {
     display:block;
   border: none;
   outline: none;
-  color: black;
+  color: #def2f1;
   background-color: inherit;
   font-family: inherit; /* Important for vertical align on mobile phones */
   margin: 0; /* Important for vertical align on mobile phones */
@@ -243,23 +249,23 @@ table {
 
 /* Add a red background color to navbar links on hover */
 .navbar a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+  background-color: #a70606;
 }
 
 /* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: red;
+  background-color: #a70606;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px #DEF2f1;
   z-index: 1;
 }
 
 /* Links inside the dropdown */
 .dropdown-content a {
   float: none;
-  color: black;
+  color: #def2f1;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -268,7 +274,7 @@ table {
 
 /* Add a grey background color to dropdown links on hover */
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: #2b7a78;
 }
 
 /* Show the dropdown menu on hover */
@@ -285,7 +291,15 @@ table {
 
 /* Hide the images by default */
 .mySlides {
-  display: none;
+  height:80vh;
+    width:50vh;
+    position:relative;
+}
+
+.mySlides img {
+    object-fit:cover;
+    height:100%;
+    width:100%;
 }
 
 /* Next & previous buttons */
