@@ -137,12 +137,6 @@ a, a:visited {
     margin-bottom: 0.3rem;
 }
 
-.product-box a {
-    border: 1px solid tomato;
-    padding: 0.3rem;
-    text-align: right;
-}
-
 .myform {
     width: 80%;
     margin: auto;
@@ -176,7 +170,7 @@ a, a:visited {
 .form-group input {
     padding: 0.3rem;
     width: 100%;
-    font-color:black;
+    color:black;
 }
 
 table {

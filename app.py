@@ -224,37 +224,13 @@ def logout():
 @app.route('/confirmorder')
 def confirmorder():
     userid = session['userid']
-    query = "SELECT productid FROM cart WHERE userid=?;"
     con = create_connection(DB_NAME)
-    cur = con.cursor()
-    cur.execute(query, (userid,))
-    product_ids = cur.fetchall()
-    print(product_ids)
-
-    if len(product_ids) == 0:
-        return redirect('/menu?error=Cart+empty')
-
-    for i in range(len(product_ids)):
-        product_ids[i] = product_ids[i][0]
-
-    unique_product_ids = list(set(product_ids))
-
-    for i in range(len(unique_product_ids)):
-        product_count = product_ids.count(unique_product_ids[i])
-        unique_product_ids[i] = [unique_product_ids[i], product_count]
-
-    query = """SELECT name, price FROM menu WHERE id = ?;"""
-    for item in unique_product_ids:
-        cur.execute(query, (item[0],))
-        item_details = cur.fetchall()
-        item.append(item_details[0][0])
-        item.append(item_details[0][1])
-
     query = "DELETE FROM cart WHERE userid=?;"
+    cur = con.cursor()
     cur.execute(query, (userid,))
     con.commit()
     con.close()
-    return redirect('/?message=Order+complete')
+    return redirect('/women')
 
 
 def is_logged_in():
