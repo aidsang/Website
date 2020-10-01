@@ -4,35 +4,54 @@
 
 {% block main %}
 <table class="cart-table">
-    <thead>
-    <tr>
-        <td>Name</td>
-        <td>Quantity</td>
-        <td>Price</td>
-        <td>Item total</td>
-        <td>Remove one</td>
-    </tr>
-    </thead>
-    <tbody>
     {% set ns=namespace(total = 0) %}
-    {% for item in cart_data %}
-    <tr>
-        <td>{{ item[2] }}</td>
-        <td>{{ item[1] }}</td>
-        <td>${{ "{:.2f}".format(item[3]) }}</td>
-        <td>${{ "{:.2f}".format(item[3] * item[1]) }}</td>
-        <td><a href="/removefromcart/{{ item[0] }}">X</a></td>
-        {% set ns.total = ns.total + item[3] * item[1] %}
-    </tr>
-    {% endfor %}
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td class="cart-total">${{ "{:.2f}".format(ns.total) }}</td>
-        <td></td>
-    </tr>
-    </tbody>
+<div class="cart">
+   <div class="cart-item">
+       <div class="item-name">
+           Name
+       </div>
+       <div class="item-description">
+           <div>
+               Quantity
+           </div>
+           <div>
+               Price
+           </div>
+           <div>
+               Item Total
+           </div>
+       </div>
+       <div class="item-delete mobile-column">
+           Remove Item
+       </div>
+   </div>
+   {% for item in cart_data %}
+       <div class="cart-item">
+           <div class="item-name">
+               {{ item[2] }}
+           </div>
+           <div class="item-description">
+               <div>
+                   {{ item[1] }}x
+               </div>
+               <div>
+                   ${{ "{:.2f}".format(item[3]) }}
+               </div>
+               <div>
+                   ${{ "{:.2f}".format(item[3] * item[1]) }}
+               </div>
+               {% set ns.total = ns.total + item[3] * item[1] %}
+           </div>
+           <div class="item-delete mobile-column">
+               <a href="/removefromcart/{{ item[0] }}">X</a>
+           </div>
+       </div>
+   {% endfor %}
+</div>
+<div class="cart-total">
+   Total: ${{ "{:.2f}".format(ns.total) }}
+</div>
+
 </table>
 
     <div>
