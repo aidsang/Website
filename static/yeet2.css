@@ -439,3 +439,61 @@ table {
   to {opacity: 1}
 }
 * {box-sizing:border-box}
+
+/* Fraise Clothing- an online shopping website
+
+(a) (i)
+The digital outcome I created was a website for online shopping.
+
+With the Covid-19 situation and ensuing lockdown this year,
+I decided to create a shopping website. Over lockdown,
+people were unable to leave their houses and shop for
+clothes. As such, I thought that making a shopping website
+would be a good idea as it would allow people to shop for clothes in the comfort of their own homes.
+
+My website had no specific target audience as clothes shopping was something that every person does. While designing this website, I aimed to make it minimalistic and simplistic yet visually appealing in terms of design and I also aimed to make it as functional and accessible as possible.
+
+I coded the website using HTML, CSS and Python using Pycharm. I also used a bit of Javascript and Flask while coding my app. I used Trello as a task management tool and I used Github for version control.
+
+(ii)
+
+Fast load times, accessibility, effective navigation
+
+One decision that I made while designing my website was in the aesthetics of my website. This included the color scheme and font. While looking at other online shopping websites, I found that many of them had messy color schemes or complex fonts which made the text hard to read. As such, I decided to use a minimalistic color scheme with a simple font when making my website. As seen above, I chose to use a dark blue background, maroon as my secondary color and white text. During my initial testing, I tested multiple color schemes and fonts including a cream background with a bright red secondary color and black font. Ultimately, my stakeholders said that the dark blue background, maroon navigation bar, and white text was the best as it was easiest to read and had a very minimalistic color scheme.
+
+Another decision that I made was using a database to store information such as my products, the user’s cart and the user’s account information. Using a database increased the efficiency of my website as it made it easier to make changes such as adding products to the cart or making new accounts. Additionally, it also made my website a bit more future proof as it meant that I could easily take down sold-out products or add new products by adding to the database. As I was using PyCharm to create my website, making multiple databases came with relative ease. One consideration that I made regarding the users was privacy. To ensure the privacy of their information I used bcrypt which hashed users’ passwords before entering it into the database. This meant that users could be confident that their accounts would be both private and secure.
+
+Another decision that I made was designing the website for both computers and phones. As majority of users would use both their phones and their laptops, I wanted to design my website for both mediums. To do so, I used css flexbox instead of a css grid. Using a css grid allowed for more flexibility when designing my website as my html elements would automatically wrap. Doing this allowed me to reuse the code for computers for phones as well. I also used flask which made my website adaptive to all screen sizes. Doing this made sure that my website would be accessible to all users on any device.
+
+(b) (i)
+With designing the aesthetic elements of my app, I conducted rigorous stakeholder feedback and user testing. This took a considerable amount of time as I had to check with my stakeholders after changing design elements of my app. Furthermore, I had to create multiple options for them to choose from and for this, I had to research good color schemes and fonts to use. When testing my aesthetic elements, I tried to have a wide range of stakeholders to simulate different users who would be using my website. This meant that I had to make a lot of changes as not all stakeholders liked the same aesthetics. It also meant that some of my stakeholders’ feedback had to be ignored if I felt that I couldn’t add those aspects due to lack of time or lack of skills. As I was not very adept at web design, there were a lot of features that I did not know how to implement.
+
+When making my databases, I used SQlite to make these databases within Pycharm. However, I encountered numerous errors and issues when making my databases which took a lot of time to fix. I also used bcrypt to hash the users’ passwords when entered. One problem with the databases was that errors would come up at various times such as when deleting items from the cart or using the same email address to make accounts with different passwords. As such, I had to create error messages which would avoid these errors from happening. Unfortunately, after submitting my final website, I had discovered more errors that I had not fixed. One positive implication of using databases was that I was able to change the images or descriptions of my products with relative ease and I was also able to add more products or remove users with ease as well.
+
+When designing my website for both laptops and phones, I had to use the Google inspect element a lot and also the Google preview tool. I also tried to test my website on different browsers to ensure that all users would be able to use my website. When testing the website for phones, there were a lot of sizing issues and input issues that arose. These were the hardest errors to deal with as I had to do a lot of research and trial and error to fix them. Ultimately, I was able to make my website compatible across most/all devices and browsers.
+
+(ii)
+As this was my first time designing a website, I was new to all aspects including html, css, javascript and others. As such I felt that I had gained a lot of new knowledge and experience when making the website.
+
+One of the most important things I learned was the SCRUM process. In the SCRUM process, I was able to set tasks at the start of every week and complete them throughout the week. At the end of each week, I was able to reflect on my development process and make necessary adjustments for the next week. I found this extremely helpful and effective as when I first started, I had trouble completing the tasks I had set myself as I didn’t fully understand the amount of time each task would take. In the following weeks, I was able to adjust my time management and set myself more achievable tasks to complete. One positive aspect of this process was that at the end of each week, I was able to not only make changes to my plan and goals but also reflect on my achievements and progress so far. One negative aspect of this process was that it took a considerable amount of time to backlog my documentation and plan my sprints.
+
+Throughout this process, I conducted a lot of research into the different aspects of designing a website such as css and html. In the beginning, I had absolutely no understanding of what the code meant, what it did and how my changes would affect my website. However, further along the development process, I started to understand more through research and trial and error. This allowed me to find more aspects to add to my website that I initially didn’t know existed.
+
+Overall, this process was a learning experience in which I was able to discover a lot of new ideas and aspects that I was initially unaware of. I was then able to implement these ideas when designing my website to ensure that I was creating the best possible outcome.
+
+(c) (i)
+
+One thing that I could have done differently was to manage my time better. In the first few weeks, I did not get a lot done. This was both due to my lack of knowledge and experience regarding web design and my poor time management. As I had managed my time poorly in the first few weeks, I felt the severe repercussions in my final week when I had a lot of goals that I wanted to achieve but not enough time to complete them. Ultimately, I had to forego a few of my goals which made me feel that my website was a bit incomplete. This also meant that I still had a few errors and issues that I was unable to fix. Although I am extremely happy with my progress throughout the development process, I feel that with better time management and more research in those first few weeks, I would have been able to complete all my goals and greatly improve my website.
+Another thing that I could have done differently was in testing my website. Throughout the process, I relied heavily on emulating phones using google rather than testing my website on actual phones. This meant that I had inaccurate information regarding how my website would work on phones. If I was able to test my website on phones, I would have had more accurate knowledge and I would have known whether my website was truly accessible for all users.
+
+(ii)
+
+Overall, I am very satisfied with my completed digital outcome as throughout the development process, I had gained a lot of new knowledge and skills that I had not had before. Through this process, I had gone from having no experience in web design to being able to develop a website which could function well and that users actually enjoyed.
+
+One aspect that I did not fully consider was legal issues in the form of intellectual property and copyright infringement. When creating this website I used photos of clothing that I got from other clothing websites as I did not have enough time to take my own photos. Obviously, if this were a real website I would already be in trouble for using photos that were owned by another company. Looking back on this now, I feel that I should have spent a bit more time just taking my own photos and avoiding any legal issues entirely.
+
+One aspect that I did consider was the cultural implications of my website. When designing this website, I wanted to ensure that my products would be inclusive for all people in terms of sizes, gender and other aspects. I tried to ensure that my website did not discriminate against any ethnic or social group.
+
+If I were to create a real website, I would want to spend a lot more time considering the real-world implications of my website and how to ensure that I avoid legal issues and also maintain the integrity and image of my website.
+
+*/
